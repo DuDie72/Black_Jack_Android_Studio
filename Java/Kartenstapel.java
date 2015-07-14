@@ -26,7 +26,7 @@ public class Kartenstapel {
     		kartennummern[i] = i;
     	}
     	
-    	for(int i = 0; i < 52; i++)     // Tauscht jedes Array-Feld einmal mit einem zufälligen anderen 
+    	for(int i = 0; i < 52; i++)     // Tauscht jedes Array-Feld einmal mit einem zufaelligen anderen 
     	{
     		int index = r.nextInt(52);
     		
