@@ -16,12 +16,12 @@ public class ErgebnisActivity extends ActionBarActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_ergebnis);
             Intent intent = getIntent();
-            String anzSpiele = intent.getStringExtra("ANZSPIELE");
-            String anzSpGewinne = intent.getStringExtra("SPGEWINNE");
-            String anzCoGewinne = intent.getStringExtra("COGEWINNE");
+            String anzSpiele = intent.getStringExtra("ANZSPIELE");              // Anzahl der gespielten Spiele
+            String anzSpGewinne = intent.getStringExtra("SPGEWINNE");           // Anzahl der gewonnen Spiele des Spielers
+            String anzCoGewinne = intent.getStringExtra("COGEWINNE");           // Anzahl der gewonnen Spiele des Coupiers
             tabelleAktualisieren(anzSpiele, anzSpGewinne, anzCoGewinne);
         }
-        public void tabelleAktualisieren(String anz, String anzSp, String anzCo)
+        public void tabelleAktualisieren(String anz, String anzSp, String anzCo)        // Erstellt Ergebnistabelle
         {
             text = (TextView) findViewById(R.id.tvAnzahlSpieleZaehler);
             text.setText(anz);
