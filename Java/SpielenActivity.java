@@ -19,7 +19,7 @@ public class SpielenActivity extends ActionBarActivity {
     private int croupierPunkte=0;
     private int spielerGewinne=0;
     private int croupierGewinne=0;
-    private int zaehler=3;
+    private int zaehler=3;          // Ist die Id, des als nächstes zu verwendeten Kartenimages   
     private TextView spielNrView;
     private TextView spielerPunkteView;
     private TextView croupierPunkteView;
@@ -46,7 +46,7 @@ public class SpielenActivity extends ActionBarActivity {
         spielerPunkteView = (TextView)findViewById(R.id.tvPunkteZaehlerSpieler);
         croupierPunkteView = (TextView)findViewById(R.id.tvPunkteZaehlerCroupier);
 
-        for(int i = 1; i <= 16; i++)
+        for(int i = 1; i <= 16; i++) // Kommt mir unnütz vor ???
         {
             resId = getResources().getIdentifier("kb", "drawable", getPackageName());
             imageViewId = getResources().getIdentifier("imageView" + i, "id", getPackageName());
@@ -103,6 +103,7 @@ public class SpielenActivity extends ActionBarActivity {
             spielerGewinne++;
         }
         else {
+            // Wechselt die Sichtbarkeit der Button, so dass nun "Karte ziehen" und "Aufhoeren" zu sehen sind
             spielStartenButton.setVisibility(View.INVISIBLE);
             ergebnissButton.setVisibility(View.INVISIBLE);
             karteZiehenButton.setVisibility(View.VISIBLE);
@@ -118,6 +119,7 @@ public class SpielenActivity extends ActionBarActivity {
             zaehler++;
             if (spielerPunkte >21)
             {
+                // Der Spieler verliert wenn er mehr als 21 Punkte zieht.
                 Toast.makeText(this,"Dein Gegner gewinnt das Spiel!", Toast.LENGTH_LONG).show();
                 croupierGewinne++;
                 spielStartenButton.setVisibility(View.VISIBLE);
@@ -126,6 +128,7 @@ public class SpielenActivity extends ActionBarActivity {
                 aufhoerenButton.setVisibility(View.INVISIBLE);
             }
             else if (spielerPunkte == 21){
+                // Der Spieler gewinnt falls er genau 21 Punkte zieht.
                 Toast.makeText(this,"Du gewinnst das Spiel!", Toast.LENGTH_LONG).show();
                 spielerGewinne++;
                 spielStartenButton.setVisibility(View.VISIBLE);
@@ -135,11 +138,14 @@ public class SpielenActivity extends ActionBarActivity {
             }
         }
     }
+    
     public void aufhoeren(View button)
     {
         // Der Croupier ist nun dran, die nächste Karte muss auf
         // ImageView iV10 gelegt werden, daher zaehler=10
         zaehler = 10;
+        
+        // Thread sorgt dafuer, dass der Zug jeder Karte des Croupiers um 1 Sekunde verzoegert wird.
         new Thread(){
             public void run(){
                 while (croupierPunkte <17)
@@ -165,7 +171,7 @@ public class SpielenActivity extends ActionBarActivity {
                 }
             }
         }.start();
-
+        
         spielStartenButton.setVisibility(View.VISIBLE);
         ergebnissButton.setVisibility(View.VISIBLE);
         karteZiehenButton.setVisibility(View.INVISIBLE);
@@ -199,6 +205,7 @@ public class SpielenActivity extends ActionBarActivity {
     }
 
     public void ergebnisseAnzeigen(View v) {
+        // Uebertraegt Ergebnisse an Ergebnis-Activity
         final Intent intent = new Intent(this,ErgebnisActivity.class);
         intent.putExtra("ANZSPIELE",""+spielNr);
         intent.putExtra("COGEWINNE",""+croupierGewinne);
