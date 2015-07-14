@@ -4,10 +4,10 @@ package com.adt.blackjack;
  * Created by susanne on 04.04.2015.
  */
 public class Karte {
-    private int kartennummer;
+    private int kartennummer;       // Jede Karte hat eine eigene Nummer von 0-51
     private String farbe;
     private int wert;
-    private String bildwert;
+    private String bildwert;    
 
     public Karte(int kartennummer)
     {
@@ -17,8 +17,8 @@ public class Karte {
         bildwert = wertInWorten();
     }
 
-    public int kartenWert()
-    {
+    public int kartenWert()         // Ermittelt kartenWert aus der Kartennummer. Karten 2-10 haben angegebene Zahl als
+    {                               // Wert, Bilder haben Wert 10 und Asse haben Wert 11.
         int w = kartennummer % 13;
         if (w<=8)
             return w+2;
@@ -51,7 +51,7 @@ public class Karte {
         }
         return farbe;
     }
-    public String wertInWorten()
+    public String wertInWorten()        // Ermittelt Kartenwert in Worten: z.B "Bude" oder "Sieben" 
     {
         int w = kartennummer % 13;
         switch (w)
@@ -83,7 +83,7 @@ public class Karte {
             case 12:
                 return bildwert = "Ass";
             default:
-                //System.out.println("Karte gibt es nicht!");
+                System.out.println("Karte gibt es nicht!");
         }
         return bildwert;
     }
