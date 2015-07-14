@@ -1,8 +1,6 @@
 package com.adt.blackjack;
 import java.util.*;
-/**
- * Created by susanne on 04.04.2015.
- */
+
 public class Kartenstapel {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
     private Stack kartenstapel;
@@ -18,21 +16,28 @@ public class Kartenstapel {
     {
         return kartenstapel;
     }
-    public void kartenMischen()
+    public void kartenMischen()     // Mischt nach dem Prinzip "Durchwühlen"
     {
-        boolean abhaken[] = new boolean[52];
-        Random r = new Random();
-        int a=0;
-
-        do
-        {
-            int i = r.nextInt(52);
-            if (abhaken[i]== false)
-            {
-                abhaken[i]= true;
-                kartenstapel.push(new Karte(i));
-                a++;
-            }
-        }while(a<52);
+        int kartennummern[] = new int[52];
+    	Random r = new Random();
+    	
+    	for(int i = 0; i < 52; i++)     // Erstellt Integer Array mit allen 52 Kartennummern
+    	{
+    		kartennummern[i] = i;
+    	}
+    	
+    	for(int i = 0; i < 52; i++)     // Tauscht jedes Array-Feld einmal mit einem zufälligen anderen 
+    	{
+    		int index = r.nextInt(52);
+    		
+    		int swap = kartennummern[i];
+    		kartennummern[i] = kartennummern[index];
+    		kartennummern[index] = swap;
+    	}
+    
+    	for(int i = 0; i < 52; i++)     // Erstellt Kartenstapel aus dem gemischten Kartennumern-Array
+    	{
+    		kartenstapel.push(new Karte(kartennummern[i]));
+    	}
     }
 }
