@@ -18,7 +18,7 @@ public class ErgebnisActivity extends ActionBarActivity {
             Intent intent = getIntent();
             String anzSpiele = intent.getStringExtra("ANZSPIELE");              // Anzahl der gespielten Spiele
             String anzSpGewinne = intent.getStringExtra("SPGEWINNE");           // Anzahl der gewonnen Spiele des Spielers
-            String anzCoGewinne = intent.getStringExtra("COGEWINNE");           // Anzahl der gewonnen Spiele des Coupiers
+            String anzCoGewinne = intent.getStringExtra("COGEWINNE");           // Anzahl der gewonnen Spiele des Croupiers
             tabelleAktualisieren(anzSpiele, anzSpGewinne, anzCoGewinne);
         }
         public void tabelleAktualisieren(String anz, String anzSp, String anzCo)        // Erstellt Ergebnistabelle
