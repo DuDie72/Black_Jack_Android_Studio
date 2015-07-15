@@ -46,7 +46,7 @@ public class SpielenActivity extends ActionBarActivity {
         spielerPunkteView = (TextView)findViewById(R.id.tvPunkteZaehlerSpieler);
         croupierPunkteView = (TextView)findViewById(R.id.tvPunkteZaehlerCroupier);
 
-        for(int i = 1; i <= 16; i++) // Kommt mir unnütz vor ???
+        for(int i = 1; i <= 16; i++)  // Übergibt allen ImageViews eine unsichtbare Karte, da noch keine Karten gezogen wurden
         {
             resId = getResources().getIdentifier("kb", "drawable", getPackageName());
             imageViewId = getResources().getIdentifier("imageView" + i, "id", getPackageName());
@@ -66,7 +66,7 @@ public class SpielenActivity extends ActionBarActivity {
         spielerPunkteView.setText(Integer.toString(spielerPunkte));
         croupierPunkteView.setText(Integer.toString(croupierPunkte));
 
-        for(int i = 1; i <= 16; i++)
+        for(int i = 1; i <= 16; i++)  // Übergibt allen ImageViews eine unsichtbare Karte, da noch keine Karten gezogen wurden
         {
             resId = getResources().getIdentifier("kb", "drawable", getPackageName());
             imageViewId = getResources().getIdentifier("imageView" + i, "id", getPackageName());
