@@ -9,5 +9,5 @@ For Copyright questions have a look at the "LICENSE.TXT" file in the project.
 
 If you have furthermore questions or improvements feel free to contact one of the authors:
 
-Mrs. Dr S. Terveer: sterveer@citykom.net
-Mr. Julian Dierkes: julian_dierkes@web.de
+Mrs. S. Terveer: sterveer@citykom.net
+Mr. J. Dierkes: julian_dierkes@web.de
